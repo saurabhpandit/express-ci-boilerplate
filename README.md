@@ -5,4 +5,35 @@ Boilerplate repository to kickstart REST API projects using Express, TravisCI &a
 
 This repository includes the basic scaffolding required for each team to kickoff their projects. It defines a comprehensive pipeline that has following stages: test, build, publish. Aim of this repository is to provide consistency in delivery.
 
-## Test & Build using travis-ci
+## Build, Test and Run on development environment
+```npm install``` to install modules
+```npm test``` to run tests
+```npm run start``` to start development server
+
+## Test, Build & Publish using travis-ci
+### Test stage
+```
+npm install
+npm test
+```
+Installs dependency modules and runs test
+
+### Build & Publish stage
+```
+echo "$DOCKER_PASS" | docker login -u "$DOCKER_USERNAME" --password-stdin
+docker build -t $DOCKER_USERNAME/express-ci-boilerplate:$TRAVIS_BUILD_NUMBER --build-arg SHA=$(git rev-parse --short HEAD) .
+docker images
+docker tag $DOCKER_USERNAME/express-ci-boilerplate:$TRAVIS_BUILD_NUMBER $DOCKER_USERNAME/express-ci-boilerplate:latest
+docker push $DOCKER_USERNAME/express-ci-boilerplate:$TRAVIS_BUILD_NUMBER
+docker push $DOCKER_USERNAME/express-ci-boilerplate:latest
+```
+Builds docker image and publishes it to dockerhub.
+To set DOCKER_USERNAME & DOCKER_PASS in travis environment variables, use https://hub.docker.com/r/skandyla/travis-cli/ docker image or install travis gem locally.
+
+
+## Build & Run docker image
+To build docker image
+```docker build -t express-ci-boilerplate --build-arg SHA=$(git rev-parse --short HEAD) .```
+
+To run docker image
+```docker run -p 8080:8080 -t -i express-ci-boilerplate```
