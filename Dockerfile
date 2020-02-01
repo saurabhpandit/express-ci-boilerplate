@@ -8,6 +8,7 @@ RUN npm install
 # Bundle app source
 FROM node:10-alpine
 WORKDIR /opt/express-ci-boilerplate
+# Capture SHA and persist it env
 ARG SHA
 ENV SHA=${SHA}
 COPY --from=build /opt/express-ci-boilerplate .

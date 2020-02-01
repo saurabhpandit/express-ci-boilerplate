@@ -4,8 +4,10 @@ const path = require('path')
 const helmet = require('helmet')
 
 const app = express()
+// use helmet to protect your app from known vulnerabilities
 app.use(helmet());
 
+// Add resource routers here or in rootRouter
 const rootRouter = require('./routes')
 app.use('/', rootRouter)
 

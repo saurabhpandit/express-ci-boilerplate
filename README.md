@@ -57,3 +57,4 @@ docker run -p 8080:8080 -t -i express-ci-boilerplate
 2. Logging has not been implemented
 3. Use process managers has not been considered
 4. eslint has not been configured for this repo
+5. Add models and controllers to directory structure
