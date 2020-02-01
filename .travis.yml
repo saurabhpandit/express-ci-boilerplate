@@ -5,19 +5,18 @@ services:
     - docker
 jobs:
     include:
-        - stage: test
-        install: npm install
-        script:
-            - npm test
-        - stage: build and publish docker image
-        script:
-            - echo "$DOCKER_PASS" | docker login -u "$DOCKER_USERNAME" --password-stdin
-            - docker build -t $DOCKER_USERNAME/express-ci-boilerplate:$TRAVIS_BUILD_NUMBER
-            --build-arg SHA=$(git rev-parse --short HEAD) .
-            - docker images
-            - docker tag $DOCKER_USERNAME/express-ci-boilerplate:$TRAVIS_BUILD_NUMBER $DOCKER_USERNAME/express-ci-boilerplate:latest
-            - docker push $DOCKER_USERNAME/express-ci-boilerplate:$TRAVIS_BUILD_NUMBER
-            - docker push $DOCKER_USERNAME/express-ci-boilerplate:latest
+    - stage: test
+      install: npm install
+      script:
+        - npm test
+    - stage: build and publish docker image
+      script:
+        - echo "$DOCKER_PASS" | docker login -u "$DOCKER_USERNAME" --password-stdin
+        - docker build -t $DOCKER_USERNAME/express-ci-boilerplate:$TRAVIS_BUILD_NUMBER --build-arg SHA=$(git rev-parse --short HEAD) .
+        - docker images
+        - docker tag $DOCKER_USERNAME/express-ci-boilerplate:$TRAVIS_BUILD_NUMBER $DOCKER_USERNAME/express-ci-boilerplate:latest
+        - docker push $DOCKER_USERNAME/express-ci-boilerplate:$TRAVIS_BUILD_NUMBER
+        - docker push $DOCKER_USERNAME/express-ci-boilerplate:latest
 env:
   global:
     secure: mY8s8nNnziZXhl2j82xfKwzGFdPKshQ78v7XIFZjeUWDZYfOImcK8REO1NvLPEMVB5ANqL9YXyGEqJnc0qEspBdI8ahE3bU4TNqgSTIPrCASzQQPH5/kYdEymZ5+edOhfFbYtfiSXCjISZA9Q9D68O5MFoq/k8Jy+svLVl2fKV1UtDGpoq39fMM33GUBAWF33dp5I2+oSIsfsAP5OpQ2NChd4Uk0VqA/8Y8Px2oq+6vMG2z8FThlVAlMsfJeB+ljJ8jaGMCaZzHIkHrAtrUyJEUcWyRlKX0A5Lss7SbNQ5kZ/DWLJzytVCq1ypnhpA97L70jbKdhtJxVeu/pyQLSpE2UJttNo4f0A9/3tqG03Vq6D7B4cbx8+wxsST4GbhRaDqJKBw+1wYYG7F5NwN7fbdGNEP8AgBs89y2pqez9hAtvA7KvHe7vEyT9H4kSyIVC1tdh6Ggof5W/uO5M416a09PPsiNE+394vlVMtFPNUqi6vGz3zXzDHcksUTBQbUt5/nnNimOTIIHLzBCRkeSAkzvfVBv9aCVmZOsFum7XVyRBR2MtIVneb2uY3ucFHhyCbOnJdv9n6PzeP6ffhq+jXDnaQzuHGvVwEcp9vt1oh0Rs/y70e8lVeCwpB/2+Mjazzdgy6rzJNyTBSKgEvnP3isBKPTxC2Aan4NQqzmb3NUE=
