@@ -5,6 +5,12 @@ Boilerplate repository to kickstart REST API projects using Express, TravisCI &a
 
 This repository includes the basic scaffolding required for each team to kickoff their projects. It defines a comprehensive pipeline that has following stages: test, build, publish. Aim of this repository is to provide consistency in delivery.
 
+Travis builds can be located here
+https://travis-ci.org/saurabhpandit/express-ci-boilerplate
+
+Published docker images can be located here
+https://hub.docker.com/r/saurabhcpandit/express-ci-boilerplate/tags
+
 ## Build, Test and Run on development environment
 ```npm install``` to install modules
 ```npm test``` to run tests
@@ -29,12 +35,6 @@ docker push $DOCKER_USERNAME/express-ci-boilerplate:latest
 ```
 Builds docker image and publishes it to dockerhub.
 To set DOCKER_USERNAME & DOCKER_PASS in travis environment variables, use https://hub.docker.com/r/skandyla/travis-cli/ docker image or install travis gem locally.
-
-Travis builds can be located here
-https://travis-ci.org/saurabhpandit/express-ci-boilerplate
-
-Published docker images can be located here
-https://hub.docker.com/r/saurabhcpandit/express-ci-boilerplate/tags
 
 To lint .travis.yml
 ```
