@@ -9,6 +9,9 @@ app.use(helmet());
 const rootRouter = require('./routes')
 app.use('/', rootRouter)
 
+const statusRouter = require('./routes/status')
+app.use('/status', statusRouter)
+
 const port = process.env.PORT || 8080
 
 const server = http.createServer(app).listen(port, function() {
