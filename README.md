@@ -36,9 +36,24 @@ https://travis-ci.org/saurabhpandit/express-ci-boilerplate
 Published docker images can be located here
 https://hub.docker.com/r/saurabhcpandit/express-ci-boilerplate/tags
 
+To lint .travis.yml
+```
+docker run -v $(pwd):/project --rm skandyla/travis-cli lint .travis.yml
+```
+
 ## Build & Run docker image locally
 To build docker image
-```docker build -t express-ci-boilerplate --build-arg SHA=$(git rev-parse --short HEAD) .```
+```
+docker build -t express-ci-boilerplate --build-arg SHA=$(git rev-parse --short HEAD) .
+```
 
 To run docker image
-```docker run -p 8080:8080 -t -i express-ci-boilerplate```
+```
+docker run -p 8080:8080 -t -i express-ci-boilerplate
+```
+
+# Limitations
+1. Authentication mechanism has not been implemented
+2. Logging has not been implemented
+3. Use process managers has not been considered
+4. eslint has not been configured for this repo
