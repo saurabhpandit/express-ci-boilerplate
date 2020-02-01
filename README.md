@@ -30,8 +30,13 @@ docker push $DOCKER_USERNAME/express-ci-boilerplate:latest
 Builds docker image and publishes it to dockerhub.
 To set DOCKER_USERNAME & DOCKER_PASS in travis environment variables, use https://hub.docker.com/r/skandyla/travis-cli/ docker image or install travis gem locally.
 
+Travis builds can be located here
+https://travis-ci.org/saurabhpandit/express-ci-boilerplate
 
-## Build & Run docker image
+Published docker images can be located here
+https://hub.docker.com/r/saurabhcpandit/express-ci-boilerplate/tags
+
+## Build & Run docker image locally
 To build docker image
 ```docker build -t express-ci-boilerplate --build-arg SHA=$(git rev-parse --short HEAD) .```
 
