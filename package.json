@@ -1,0 +1,29 @@
+{
+  "name": "express-ci-boilerplate",
+  "version": "1.0.0",
+  "description": "Boilerplate to kickstart express app with travis and docker",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "test": "mocha src/tests --exit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saurabhpandit/express-ci-boilerplate.git"
+  },
+  "keywords": [
+    "express",
+    "travisci",
+    "docker"
+  ],
+  "author": "Saurabh Pandit",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/saurabhpandit/express-ci-boilerplate/issues"
+  },
+  "homepage": "https://github.com/saurabhpandit/express-ci-boilerplate#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "helmet": "^3.21.2"
+  }
+}
