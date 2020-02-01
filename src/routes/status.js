@@ -7,7 +7,7 @@ statusRes[name] = [
     {
         version: version,
         description: description,
-        lastcommitsha: 'not set'
+        lastcommitsha: process.env.SHA || 'not set'
     }
 ]
 

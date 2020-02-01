@@ -4,7 +4,7 @@
   "description": "Boilerplate to kickstart express app with travis and docker",
   "main": "src/app.js",
   "scripts": {
-    "start": "node src/app.js",
+    "start": "SHA=$(git rev-parse --short HEAD) node src/app.js",
     "test": "mocha src/tests --exit"
   },
   "repository": {
