@@ -11,6 +11,11 @@ https://travis-ci.org/saurabhpandit/express-ci-boilerplate
 Published docker images can be located here
 https://hub.docker.com/r/saurabhcpandit/express-ci-boilerplate/tags
 
+To run recently published docker image
+```
+docker run -p 8080:8080 -t -i saurabhcpandit/express-ci-boilerplate:latest
+```
+
 ## Build, Test and Run on development environment
 ```npm install``` to install modules
 ```npm test``` to run tests
@@ -55,6 +60,7 @@ docker run -p 8080:8080 -t -i express-ci-boilerplate
 # Limitations
 1. Authentication mechanism has not been implemented
 2. Logging has not been implemented
-3. Use process managers has not been considered
+3. Use of process managers has not been considered
 4. eslint has not been configured for this repo
 5. Add models and controllers to directory structure
+6. Better branching model Feature Branching, GitFlow should be considered for code management
